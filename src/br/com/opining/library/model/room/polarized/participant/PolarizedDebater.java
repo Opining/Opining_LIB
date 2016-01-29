@@ -1,5 +1,16 @@
 package br.com.opining.library.model.room.polarized.participant;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -8,18 +19,31 @@ import br.com.opining.library.model.room.polarized.PolarizedRoom;
 import br.com.opining.library.model.room.polarized.Side;
 
 @XmlRootElement
+@Entity
+@Table(name = "tb_polarized_debater")
+@NamedQuery(name = "PolarizedDebater.getAll", query = "from PolarizedDebater")
 public class PolarizedDebater {
 	
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_debater")
 	private Integer idDebater;
 	
+	@ManyToOne
+	@JoinColumn(name = "fk_id_user")
 	private User user;
 	
+	@Column(name = "side")
+	@Enumerated(EnumType.ORDINAL)
 	private Side side;
 	
+	@ManyToOne
+	@JoinColumn(name = "fk_id_room")
 	private PolarizedRoom room;
 	
+	@Column(name = "is_valid", columnDefinition="BINARY(1)", insertable = false, updatable = true)
 	private Boolean isValid;
 	
+	@Column(name = "is_banned", columnDefinition="BINARY(1)", insertable = false, updatable = true)
 	private Boolean isBanned;
 	
 

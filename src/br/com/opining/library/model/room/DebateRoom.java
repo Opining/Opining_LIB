@@ -43,7 +43,7 @@ public abstract class DebateRoom {
 		this.idRoom = idRoom;
 	}
 	
-	@XmlElement
+	//@XmlElement
 	public Calendar getCreationDate() {
 		return creationDate;
 	}
