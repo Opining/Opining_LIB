@@ -101,41 +101,4 @@ public class UserInformations {
 		this.logoutTimes = logoutTimes;
 	}
 
-	@Override
-	public String toString() {
-		return "UserInformations [idUserInformations=" + idUserInformations + ", user=" + user + ", loginTimes="
-				+ loginTimes + ", logoutTimes=" + logoutTimes + "]";
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserInformations other = (UserInformations) obj;
-		if (idUserInformations == null) {
-			if (other.idUserInformations != null)
-				return false;
-		} else if (!idUserInformations.equals(other.idUserInformations))
-			return false;
-		if (loginTimes == null) {
-			if (other.loginTimes != null)
-				return false;
-		} else if (!loginTimes.equals(other.loginTimes))
-			return false;
-		if (logoutTimes == null) {
-			if (other.logoutTimes != null)
-				return false;
-		} else if (!logoutTimes.equals(other.logoutTimes))
-			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
-			return false;
-		return true;
-	}
 }

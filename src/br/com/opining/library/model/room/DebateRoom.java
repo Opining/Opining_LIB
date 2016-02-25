@@ -9,20 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import br.com.opining.library.model.User;
 
 @XmlRootElement
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)  
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class DebateRoom {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name = "id_room")
 	protected Integer idRoom;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_id_creator")
+	protected User creator;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "moment", columnDefinition = "TIMESTAMP DEFAULT current_timestamp", insertable = false, updatable = false)
@@ -43,7 +52,16 @@ public abstract class DebateRoom {
 		this.idRoom = idRoom;
 	}
 	
-	//@XmlElement
+	@XmlElement
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+
+	@XmlElement
 	public Calendar getCreationDate() {
 		return creationDate;
 	}
@@ -61,7 +79,7 @@ public abstract class DebateRoom {
 		this.numMaxParticipants = numMaxParticipants;
 	}
 	
-	@XmlElement
+	@XmlTransient
 	public String getPassword() {
 		return password;
 	}
@@ -69,36 +87,5 @@ public abstract class DebateRoom {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		DebateRoom other = (DebateRoom) obj;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (creationDate == null) {
-			if (other.creationDate != null)
-				return false;
-		} else if (!creationDate.equals(other.creationDate))
-			return false;
-		if (idRoom == null) {
-			if (other.idRoom != null)
-				return false;
-		} else if (!idRoom.equals(other.idRoom))
-			return false;
-		if (numMaxParticipants == null) {
-			if (other.numMaxParticipants != null)
-				return false;
-		} else if (!numMaxParticipants.equals(other.numMaxParticipants))
-			return false;
-		return true;
-	}	
+	
 }

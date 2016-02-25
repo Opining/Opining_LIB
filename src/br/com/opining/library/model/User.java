@@ -9,6 +9,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Is the class that represents the Opining user with their informations
@@ -54,13 +55,7 @@ public class User {
 	@Column(name = "login", nullable = true, unique = true, length = LOGIN_MAX_LENGHT)
 	private String login;
 	
-	/** 
-	 * Is the user's GCM token.
-	 */
-	@Column(name = "token", nullable = true, unique = true)
-	private String token;
-	
-	@XmlElement
+	@XmlTransient
 	public Integer getIdUser() {
 		return idUser;
 	}
@@ -78,7 +73,7 @@ public class User {
 		this.name = name;
 	}
 	
-	@XmlElement
+	@XmlTransient
 	public String getPassword() {
 		return password;
 	}
@@ -95,50 +90,5 @@ public class User {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
-	@Override
-	public String toString() {
-		return "User [idUser=" + idUser + ", name=" + name + ", password=" + password + ", login=" + login
-				+ "]";
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (idUser == null) {
-			if (other.idUser != null)
-				return false;
-		} else if (!idUser.equals(other.idUser))
-			return false;
-		if (login == null) {
-			if (other.login != null)
-				return false;
-		} else if (!login.equals(other.login))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		return true;
-	}
+	
 }

@@ -69,36 +69,4 @@ public class AcessKey {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	@Override
-	public String toString() {
-		return "AcessKey [idKey=" + idKey + ", key=" + key + ", user=" + user + "]";
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		AcessKey other = (AcessKey) obj;
-		if (idKey == null) {
-			if (other.idKey != null)
-				return false;
-		} else if (!idKey.equals(other.idKey))
-			return false;
-		if (key == null) {
-			if (other.key != null)
-				return false;
-		} else if (!key.equals(other.key))
-			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
-			return false;
-		return true;
-	}
 }
