@@ -18,6 +18,7 @@ public class NewUser {
 		
 		user.setLogin(this.newLogin);
 		user.setName(this.newName);
+		user.setPassword(this.newPassword);
 		
 		return user;
 		

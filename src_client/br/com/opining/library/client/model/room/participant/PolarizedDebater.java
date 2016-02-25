@@ -1,6 +1,6 @@
 package br.com.opining.library.client.model.room.participant;
 
-import br.com.opining.library.model.room.polarized.Side;
+import br.com.opining.library.client.model.room.polarized.Side;
 
 public class PolarizedDebater extends Debater{
 	private Side side;

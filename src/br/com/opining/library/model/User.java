@@ -33,7 +33,7 @@ public class User {
 	 * Is the user's indentifier
 	 */
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_user")
+	@Column(name = "id_user", updatable = false, insertable = false)
 	private Integer idUser;
 	
 	/** 

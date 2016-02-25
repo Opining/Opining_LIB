@@ -1,7 +1,11 @@
 package br.com.opining.library.model.room.polarized;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import br.com.opining.library.model.User;
 
+@XmlRootElement
 public class NewPolarizedRoom {
 	
 	private String newSubject;
@@ -10,6 +14,20 @@ public class NewPolarizedRoom {
 	private Integer newNumMaxParticipants;
 	private String newPassword;
 	
+	public PolarizedRoom toPolarizedRoom(){
+		
+		PolarizedRoom polarizedRoom = new PolarizedRoom();
+		
+		polarizedRoom.setSubject(newSubject);
+		polarizedRoom.setArgumentTimeInMinutes(newArgumentTimeInMinutes);
+		polarizedRoom.setCreator(creator);
+		polarizedRoom.setNumMaxParticipants(newNumMaxParticipants);
+		polarizedRoom.setPassword(newPassword);
+		
+		return polarizedRoom;
+	}
+	
+	@XmlElement
 	public String getNewSubject() {
 		return newSubject;
 	}
@@ -18,6 +36,7 @@ public class NewPolarizedRoom {
 		this.newSubject = newSubject;
 	}
 	
+	@XmlElement
 	public Integer getNewArgumentTimeInMinutes() {
 		return newArgumentTimeInMinutes;
 	}
@@ -26,14 +45,16 @@ public class NewPolarizedRoom {
 		this.newArgumentTimeInMinutes = newArgumentTimeInMinutes;
 	}
 	
-	public User getNewCreator() {
+	@XmlElement
+	public User getCreator() {
 		return creator;
 	}
 	
-	public void setNewCreator(User newCreator) {
+	public void setCreator(User newCreator) {
 		this.creator = newCreator;
 	}
 	
+	@XmlElement
 	public Integer getNewNumMaxParticipants() {
 		return newNumMaxParticipants;
 	}
@@ -42,6 +63,7 @@ public class NewPolarizedRoom {
 		this.newNumMaxParticipants = newNumMaxParticipants;
 	}
 	
+	@XmlElement
 	public String getNewPassword() {
 		return newPassword;
 	}

@@ -2,7 +2,7 @@ package br.com.opining.library.client.model.room.polarized;
 
 import java.util.Calendar;
 
-import br.com.opining.library.model.room.participant.PolarizedDebater;
+import br.com.opining.library.client.model.room.participant.PolarizedDebater;
 
 public class Argument {
 	

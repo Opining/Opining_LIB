@@ -1,8 +1,7 @@
 package br.com.opining.library.client.model.room;
 
 import java.util.Calendar;
-
-import br.com.opining.library.model.User;
+import br.com.opining.library.client.model.User;
 
 public abstract class DebateRoom {
 	
@@ -24,8 +23,8 @@ public abstract class DebateRoom {
 		return creator;
 	}
 
-	public void setCreator(User creator) {
-		this.creator = creator;
+	public void setCreator(br.com.opining.library.client.model.User creator2) {
+		this.creator = creator2;
 	}
 
 	public Calendar getCreationDate() {

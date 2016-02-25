@@ -10,6 +10,18 @@ public class NewPolarizedRoom {
 	private Integer newNumMaxParticipants;
 	private String newPassword;
 	
+	public PolarizedRoom toPolarizedRoom(){
+		
+		PolarizedRoom polarizedRoom = new PolarizedRoom();
+		
+		polarizedRoom.setArgumentTimeInMinutes(newArgumentTimeInMinutes);
+		polarizedRoom.setCreator(creator);
+		polarizedRoom.setNumMaxParticipants(newNumMaxParticipants);
+		polarizedRoom.setSubject(newSubject);
+		
+		return polarizedRoom;		
+	}
+	
 	public String getNewSubject() {
 		return newSubject;
 	}
@@ -26,11 +38,11 @@ public class NewPolarizedRoom {
 		this.newArgumentTimeInMinutes = newArgumentTimeInMinutes;
 	}
 	
-	public User getNewCreator() {
+	public User getCreator() {
 		return creator;
 	}
 	
-	public void setNewCreator(User newCreator) {
+	public void setCreator(User newCreator) {
 		this.creator = newCreator;
 	}
 	

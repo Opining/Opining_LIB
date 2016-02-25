@@ -1,7 +1,7 @@
 package br.com.opining.library.client.model.room.participant;
 
 import br.com.opining.library.client.model.room.DebateRoom;
-import br.com.opining.library.model.User;
+import br.com.opining.library.client.model.User;
 
 public abstract class Debater {
 	
