@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.opining.library.util.EncryptUtil;
+
 /**
  * Is the class that represents the HTTP access key to webservice services, 
  * which will be processed by the client and placed in the HTTP header 
@@ -42,6 +44,16 @@ public class AcessKey {
 	@OneToOne
 	@JoinColumn(name = "fk_id_user")
 	private User user;
+	
+	public String buildKey(){
+		
+		String key;
+		
+		key = this.user.getLogin() + ":" + this.key;
+		key = EncryptUtil.encode(key);
+		
+		return key;		
+	}
 	
 	@XmlElement
 	public Integer getIdKey() {

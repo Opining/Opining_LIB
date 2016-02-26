@@ -24,6 +24,15 @@ public class NewUser {
 		
 	}
 	
+	public User toUser(Integer idUser){
+		
+		User user = toUser();		
+		user.setIdUser(idUser);
+		
+		return user;
+		
+	}
+	
 	@XmlElement
 	public String getNewLogin() {
 		return newLogin;
