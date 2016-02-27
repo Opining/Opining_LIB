@@ -23,7 +23,7 @@ public class PolarizedRoom extends DebateRoom {
 	public static final int SUBJECT_MAX_LENGHT = 50;
 	public static final int SUBJECT_MIN_LENGHT = 1;
 	
-	@Column(name = "subject")
+	@Column(name = "subject", length = SUBJECT_MAX_LENGHT)
 	private String subject;
 	
 	@Column(name = "argument_time_minutes", columnDefinition = "DEFAULT " + ARGUMENT_TIME_IN_MINUTES_DEFAULT)
