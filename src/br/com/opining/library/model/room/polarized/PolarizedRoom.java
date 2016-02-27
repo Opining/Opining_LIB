@@ -15,10 +15,18 @@ import br.com.opining.library.model.room.DebateRoom;
 @NamedQuery(name = "PolarizedRoom.getAll", query = "from PolarizedRoom")
 public class PolarizedRoom extends DebateRoom {
 	
+	public static final int MAX_ARGUMENT_TIME_IN_MINUTES = 2;
+	public static final int MIN_ARGUMENT_TIME_IN_MINUTES = 1;
+	
+	public static final int ARGUMENT_TIME_IN_MINUTES_DEFAULT = 2;
+	
+	public static final int SUBJECT_MAX_LENGHT = 50;
+	public static final int SUBJECT_MIN_LENGHT = 1;
+	
 	@Column(name = "subject")
 	private String subject;
 	
-	@Column(name = "argument_time_minutes")
+	@Column(name = "argument_time_minutes", columnDefinition = "DEFAULT " + ARGUMENT_TIME_IN_MINUTES_DEFAULT)
 	private Integer argumentTimeInMinutes;
 	
 	@XmlElement

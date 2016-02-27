@@ -5,6 +5,12 @@ import br.com.opining.library.client.model.User;
 
 public abstract class DebateRoom {
 	
+	public static final int MAX_NUM_MAX_PARTICIPANTS = 10;
+	public static final int MIN_NUM_MAX_PARTICIPANTS = 2;
+	
+	public static final int PASSWORD_MAX_LENGHT = 15;
+	public static final int PASSWORD_MIN_LENGHT = 6;
+	
 	protected Integer idRoom;
 	protected User creator;
 	protected Calendar creationDate;
