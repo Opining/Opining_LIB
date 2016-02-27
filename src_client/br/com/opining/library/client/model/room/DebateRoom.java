@@ -10,6 +10,7 @@ public abstract class DebateRoom {
 	protected Calendar creationDate;
 	protected Integer numMaxParticipants;
 	protected String password;
+	protected Boolean isPrivate;
 	
 	public Integer getIdRoom() {
 		return idRoom;
@@ -43,4 +44,11 @@ public abstract class DebateRoom {
 		this.numMaxParticipants = numMaxParticipants;
 	}
 	
+	public Boolean getIsPrivate() {
+		return isPrivate;
+	}
+
+	public void setIsPrivate(Boolean isPrivate) {
+		this.isPrivate = isPrivate;
+	}	
 }

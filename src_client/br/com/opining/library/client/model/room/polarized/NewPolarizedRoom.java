@@ -10,18 +10,6 @@ public class NewPolarizedRoom {
 	private Integer newNumMaxParticipants;
 	private String newPassword;
 	
-	public PolarizedRoom toPolarizedRoom(){
-		
-		PolarizedRoom polarizedRoom = new PolarizedRoom();
-		
-		polarizedRoom.setArgumentTimeInMinutes(newArgumentTimeInMinutes);
-		polarizedRoom.setCreator(creator);
-		polarizedRoom.setNumMaxParticipants(newNumMaxParticipants);
-		polarizedRoom.setSubject(newSubject);
-		
-		return polarizedRoom;		
-	}
-	
 	public String getNewSubject() {
 		return newSubject;
 	}

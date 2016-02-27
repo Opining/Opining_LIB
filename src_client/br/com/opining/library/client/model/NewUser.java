@@ -5,17 +5,6 @@ public class NewUser {
 	private String newLogin;
 	private String newName;
 	private String newPassword;
-	
-	public User toUser(){
-		
-		User user = new User();
-		
-		user.setLogin(this.newLogin);
-		user.setName(this.newName);
-		
-		return user;
-		
-	}
 
 	public String getNewLogin() {
 		return newLogin;

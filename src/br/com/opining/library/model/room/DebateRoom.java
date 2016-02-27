@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -42,6 +43,9 @@ public abstract class DebateRoom {
 	
 	@Column(name = "password")
 	protected String password;
+	
+	@Transient
+	protected Boolean isPrivate;
 	
 	@XmlElement
 	public Integer getIdRoom() {
@@ -86,6 +90,15 @@ public abstract class DebateRoom {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@XmlElement
+	public Boolean getIsPrivate() {
+		return isPrivate;
+	}
+
+	public void setIsPrivate(Boolean isPrivate) {
+		this.isPrivate = isPrivate;
 	}
 	
 }
