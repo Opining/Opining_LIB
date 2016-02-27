@@ -11,7 +11,6 @@ public class NewPolarizedRoom {
 	private String newSubject;
 	private Integer newArgumentTimeInMinutes;
 	private User creator;
-	private Integer newNumMaxParticipants;
 	private String newPassword;
 	
 	public PolarizedRoom toPolarizedRoom(){
@@ -21,7 +20,6 @@ public class NewPolarizedRoom {
 		polarizedRoom.setSubject(newSubject);
 		polarizedRoom.setArgumentTimeInMinutes(newArgumentTimeInMinutes);
 		polarizedRoom.setCreator(creator);
-		polarizedRoom.setNumMaxParticipants(newNumMaxParticipants);
 		polarizedRoom.setPassword(newPassword);
 		
 		return polarizedRoom;
@@ -52,15 +50,6 @@ public class NewPolarizedRoom {
 	
 	public void setCreator(User newCreator) {
 		this.creator = newCreator;
-	}
-	
-	@XmlElement
-	public Integer getNewNumMaxParticipants() {
-		return newNumMaxParticipants;
-	}
-	
-	public void setNewNumMaxParticipants(Integer newNumMaxParticipants) {
-		this.newNumMaxParticipants = newNumMaxParticipants;
 	}
 	
 	@XmlElement

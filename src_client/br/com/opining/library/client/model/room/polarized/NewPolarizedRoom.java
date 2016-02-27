@@ -7,7 +7,6 @@ public class NewPolarizedRoom {
 	private String newSubject;
 	private Integer newArgumentTimeInMinutes;
 	private User creator;
-	private Integer newNumMaxParticipants;
 	private String newPassword;
 	
 	public String getNewSubject() {
@@ -32,14 +31,6 @@ public class NewPolarizedRoom {
 	
 	public void setCreator(User newCreator) {
 		this.creator = newCreator;
-	}
-	
-	public Integer getNewNumMaxParticipants() {
-		return newNumMaxParticipants;
-	}
-	
-	public void setNewNumMaxParticipants(Integer newNumMaxParticipants) {
-		this.newNumMaxParticipants = newNumMaxParticipants;
 	}
 	
 	public String getNewPassword() {

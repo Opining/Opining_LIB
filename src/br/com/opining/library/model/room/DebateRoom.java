@@ -25,10 +25,7 @@ import br.com.opining.library.model.User;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class DebateRoom {
 	
-	public static final int NUM_MAX_PARTICIPANTS_DEFAULT = 10;
-	
-	public static final int MAX_NUM_MAX_PARTICIPANTS = 10;
-	public static final int MIN_NUM_MAX_PARTICIPANTS = 2;
+	public static final int NUM_MAX_PARTICIPANTS = 10;
 	
 	public static final int PASSWORD_MAX_LENGHT = 15;
 	public static final int PASSWORD_MIN_LENGHT = 6;
@@ -45,9 +42,6 @@ public abstract class DebateRoom {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "moment", columnDefinition = "TIMESTAMP DEFAULT current_timestamp", insertable = false, updatable = false)
 	protected Calendar creationDate;
-	
-	@Column(name = "max_participants", columnDefinition = "DEFAULT " + NUM_MAX_PARTICIPANTS_DEFAULT)
-	protected Integer numMaxParticipants;
 	
 	@Column(name = "password")
 	protected String password;
@@ -80,15 +74,6 @@ public abstract class DebateRoom {
 	
 	public void setCreationDate(Calendar creationDate) {
 		this.creationDate = creationDate;
-	}
-	
-	@XmlElement
-	public Integer getNumMaxParticipants() {
-		return numMaxParticipants;
-	}
-	
-	public void setNumMaxParticipants(Integer numMaxParticipants) {
-		this.numMaxParticipants = numMaxParticipants;
 	}
 	
 	@XmlTransient

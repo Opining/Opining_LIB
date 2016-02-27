@@ -5,8 +5,7 @@ import br.com.opining.library.client.model.User;
 
 public abstract class DebateRoom {
 	
-	public static final int MAX_NUM_MAX_PARTICIPANTS = 10;
-	public static final int MIN_NUM_MAX_PARTICIPANTS = 2;
+	public static final int NUM_MAX_PARTICIPANTS = 10;
 	
 	public static final int PASSWORD_MAX_LENGHT = 15;
 	public static final int PASSWORD_MIN_LENGHT = 6;
@@ -14,7 +13,6 @@ public abstract class DebateRoom {
 	protected Integer idRoom;
 	protected User creator;
 	protected Calendar creationDate;
-	protected Integer numMaxParticipants;
 	protected String password;
 	protected Boolean isPrivate;
 	
@@ -40,14 +38,6 @@ public abstract class DebateRoom {
 	
 	public void setCreationDate(Calendar creationDate) {
 		this.creationDate = creationDate;
-	}
-	
-	public Integer getNumMaxParticipants() {
-		return numMaxParticipants;
-	}
-	
-	public void setNumMaxParticipants(Integer numMaxParticipants) {
-		this.numMaxParticipants = numMaxParticipants;
 	}
 	
 	public Boolean getIsPrivate() {
