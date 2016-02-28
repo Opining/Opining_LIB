@@ -12,7 +12,7 @@ public class NewPolarizedRoom {
 	private Integer newArgumentTimeInMinutes;
 	private User creator;
 	private String newPassword;
-	
+
 	public PolarizedRoom toPolarizedRoom(){
 		
 		PolarizedRoom polarizedRoom = new PolarizedRoom();
