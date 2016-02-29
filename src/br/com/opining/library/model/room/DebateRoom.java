@@ -13,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -48,7 +47,7 @@ public abstract class DebateRoom {
 	@Column(name = "password", length = PASSWORD_MAX_LENGHT)
 	protected String password;
 	
-	@Transient
+	@Column(name = "is_private", columnDefinition="BINARY(1)")
 	protected Boolean isPrivate;
 	
 	@XmlElement
