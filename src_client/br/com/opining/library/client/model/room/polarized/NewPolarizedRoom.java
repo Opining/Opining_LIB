@@ -8,6 +8,7 @@ public class NewPolarizedRoom {
 	private Integer newArgumentTimeInMinutes;
 	private User creator;
 	private String newPassword;
+	private Boolean isPrivate;
 	
 	public String getNewSubject() {
 		return newSubject;
@@ -39,5 +40,13 @@ public class NewPolarizedRoom {
 	
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
+	}
+	
+	public Boolean getIsPrivate() {
+		return isPrivate;
+	}
+	
+	public void setIsPrivate(Boolean isPrivate) {
+		this.isPrivate = isPrivate;
 	}
 }

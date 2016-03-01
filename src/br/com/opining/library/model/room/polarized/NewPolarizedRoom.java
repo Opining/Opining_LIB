@@ -12,6 +12,7 @@ public class NewPolarizedRoom {
 	private Integer newArgumentTimeInMinutes;
 	private User creator;
 	private String newPassword;
+	private Boolean isPrivate;
 
 	public PolarizedRoom toPolarizedRoom(){
 		
@@ -21,6 +22,7 @@ public class NewPolarizedRoom {
 		polarizedRoom.setArgumentTimeInMinutes(newArgumentTimeInMinutes);
 		polarizedRoom.setCreator(creator);
 		polarizedRoom.setPassword(newPassword);
+		polarizedRoom.setIsPrivate(isPrivate);
 		
 		return polarizedRoom;
 	}
@@ -59,5 +61,14 @@ public class NewPolarizedRoom {
 	
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
+	}
+
+	@XmlElement
+	public Boolean getIsPrivate() {
+		return isPrivate;
+	}
+
+	public void setIsPrivate(Boolean isPrivate) {
+		this.isPrivate = isPrivate;
 	}
 }
