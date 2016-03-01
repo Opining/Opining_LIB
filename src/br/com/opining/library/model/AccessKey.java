@@ -23,7 +23,7 @@ import br.com.opining.library.util.EncryptUtil;
 @Table(name = "tb_acess_key")
 @XmlRootElement
 @NamedQuery(name = "AcessKey.getAll", query = "from AcessKey")
-public class AcessKey {
+public class AccessKey {
 	
 	/**
 	 * Is the key's indentifier
