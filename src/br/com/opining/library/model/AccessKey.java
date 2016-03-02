@@ -22,7 +22,7 @@ import br.com.opining.library.util.EncryptUtil;
 @Entity
 @Table(name = "tb_acess_key")
 @XmlRootElement
-@NamedQuery(name = "AcessKey.getAll", query = "from AcessKey")
+@NamedQuery(name = "AccessKey.getAll", query = "from AccessKey")
 public class AccessKey {
 	
 	/**
