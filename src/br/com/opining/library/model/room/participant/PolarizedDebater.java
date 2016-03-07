@@ -28,7 +28,7 @@ public class PolarizedDebater extends Debater{
 	@Column(name = "is_banned", columnDefinition="BINARY(1)", insertable = false, updatable = true)
 	private Boolean isBanned;
 	
-	@XmlElement
+	@XmlTransient
 	public Side getSide() {
 		return side;
 	}

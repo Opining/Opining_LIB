@@ -68,7 +68,7 @@ public abstract class DebateRoom {
 		this.creator = creator;
 	}
 
-	@XmlElement
+	@XmlTransient
 	public Calendar getCreationDate() {
 		return creationDate;
 	}
