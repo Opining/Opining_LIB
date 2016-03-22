@@ -3,7 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.opining</groupId>
-	<artifactId>opining-lib</artifactId>
+	<artifactId>Opining_LIB</artifactId>
 	<version>1.0.0-beta</version>
 	<description>Is the model of Opining Project</description>
 
