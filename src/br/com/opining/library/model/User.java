@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -15,7 +16,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * Is the class that represents the Opining user with their informations
  */
 @Entity
-@Table(name = "tb_user")
+@Table(name = "tb_user", uniqueConstraints = @UniqueConstraint(columnNames = {"login"}))
 @XmlRootElement
 @NamedQuery(name = "User.getAll", query = "from User")
 public class User {
@@ -52,7 +53,7 @@ public class User {
 	 * Is the user's nickname, used to log in the application. 
 	 * If that attribute is null, that user is inactive.
 	 */
-	@Column(name = "login", nullable = true, unique = true, length = LOGIN_MAX_LENGHT)
+	@Column(name = "login", unique = true, length = LOGIN_MAX_LENGHT)
 	private String login;
 	
 	@XmlTransient
