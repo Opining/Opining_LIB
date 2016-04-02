@@ -11,6 +11,11 @@ public class OpiningValidateException extends IllegalArgumentException {
 		opiningError = error.getOpiningError();
 	}
 	
+	public OpiningValidateException (Errors error, Throwable cause) {
+		super(error.getMessage(), cause);
+		opiningError = error.getOpiningError();
+	}
+	
 	public OpiningError getOpiningError() {
 		return opiningError;
 	}
