@@ -75,10 +75,10 @@ public class User{
 	
 	public void setName(String name) {
 		
-		if (this.name.length() > NAME_MAX_LENGHT)
+		if (name.length() > NAME_MAX_LENGHT)
 			throw new OpiningValidateException(Errors.NAME_IS_TOO_LONG);
 		
-		if (this.name == null || this.name.length() < NAME_MIN_LENGHT)
+		if (name == null || name.length() < NAME_MIN_LENGHT)
 			throw new OpiningValidateException(Errors.NAME_IS_TOO_SHORT);
 		
 		this.name = name;
@@ -91,10 +91,10 @@ public class User{
 	
 	public void setPassword(String password) {
 
-		if (this.password.length() > PASSWORD_MAX_LENGHT)
+		if (password.length() > PASSWORD_MAX_LENGHT)
 			throw new OpiningValidateException(Errors.PASSWORD_IS_TOO_LONG);
 		
-		if (this.password == null || this.password.length() < PASSWORD_MIN_LENGHT)
+		if (password == null || password.length() < PASSWORD_MIN_LENGHT)
 			throw new OpiningValidateException(Errors.PASSWORD_IS_TOO_SHORT);
 		
 		this.password = password;
@@ -107,13 +107,13 @@ public class User{
 	
 	public void setLogin(String login) {
 		
-		if (!this.login.matches("^[a-z0-9]+$"))
+		if (!login.matches("^[a-z0-9]+$"))
 			throw new OpiningValidateException(Errors.LOGIN_FORMAT_NOT_ACCEPTED);
 		
 		if (login == null || login.length() < LOGIN_MIN_LENGHT)
 			throw new OpiningValidateException(Errors.LOGIN_IS_TOO_SHORT);
 		
-		if (this.login.length() > LOGIN_MAX_LENGHT)
+		if (login.length() > LOGIN_MAX_LENGHT)
 			throw new OpiningValidateException(Errors.LOGIN_IS_TOO_LONG);
 		
 		this.login = login;
