@@ -14,7 +14,6 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.opining.library.model.error.Errors;
 import br.com.opining.library.model.error.OpiningValidateException;
-import br.com.opining.library.validation.Validable;
 
 /**
  * Is the class that represents the Opining user with their informations
@@ -23,7 +22,7 @@ import br.com.opining.library.validation.Validable;
 @Table(name = "tb_user", uniqueConstraints = @UniqueConstraint(columnNames = {"login"}))
 @XmlRootElement
 @NamedQuery(name = "User.getAll", query = "from User")
-public class User implements Validable{
+public class User{
 	
 	public static final int LOGIN_MAX_LENGHT = 15;
 	public static final int LOGIN_MIN_LENGHT = 4;
@@ -75,6 +74,13 @@ public class User implements Validable{
 	}
 	
 	public void setName(String name) {
+		
+		if (this.name.length() > NAME_MAX_LENGHT)
+			throw new OpiningValidateException(Errors.NAME_IS_TOO_LONG);
+		
+		if (this.name == null || this.name.length() < NAME_MIN_LENGHT)
+			throw new OpiningValidateException(Errors.NAME_IS_TOO_SHORT);
+		
 		this.name = name;
 	}
 	
@@ -84,6 +90,13 @@ public class User implements Validable{
 	}
 	
 	public void setPassword(String password) {
+
+		if (this.password.length() > PASSWORD_MAX_LENGHT)
+			throw new OpiningValidateException(Errors.PASSWORD_IS_TOO_LONG);
+		
+		if (this.password == null || this.password.length() < PASSWORD_MIN_LENGHT)
+			throw new OpiningValidateException(Errors.PASSWORD_IS_TOO_SHORT);
+		
 		this.password = password;
 	}
 	
@@ -94,6 +107,9 @@ public class User implements Validable{
 	
 	public void setLogin(String login) {
 		
+		if (!this.login.matches("^[a-z0-9]+$"))
+			throw new OpiningValidateException(Errors.LOGIN_FORMAT_NOT_ACCEPTED);
+		
 		if (login == null || login.length() < LOGIN_MIN_LENGHT)
 			throw new OpiningValidateException(Errors.LOGIN_IS_TOO_SHORT);
 		
@@ -103,28 +119,4 @@ public class User implements Validable{
 		this.login = login;
 	}
 
-	@Override
-	public boolean validate() throws OpiningValidateException {
-		
-		if (this.password == null || this.password.length() < PASSWORD_MIN_LENGHT)
-			throw new OpiningValidateException(Errors.PASSWORD_IS_TOO_SHORT);
-		
-		if (this.name == null || this.name.length() < NAME_MIN_LENGHT)
-			throw new OpiningValidateException(Errors.NAME_IS_TOO_SHORT);
-		
-		if (this.password.length() > PASSWORD_MAX_LENGHT)
-			throw new OpiningValidateException(Errors.PASSWORD_IS_TOO_LONG);
-		
-		if (this.name.length() > NAME_MAX_LENGHT)
-			throw new OpiningValidateException(Errors.NAME_IS_TOO_LONG);
-		
-		if (!this.login.matches("^[a-z0-9]+$"))
-			throw new OpiningValidateException(Errors.LOGIN_FORMAT_NOT_ACCEPTED);
-		
-		//if (!this.name.matches("^[a-záàâãéèêíïóôõöúçñ ]+$"))
-			//throw new OpiningValidateException(Errors.NAME_FORMAT_NOT_ACCEPTED);
-		
-		return true;
-	}
-	
 }
