@@ -7,6 +7,8 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.opining.library.model.error.Errors;
+import br.com.opining.library.model.error.OpiningValidateException;
 import br.com.opining.library.model.room.DebateRoom;
 
 @Entity
@@ -35,6 +37,13 @@ public class PolarizedRoom extends DebateRoom {
 	}
 	
 	public void setSubject(String subject) {
+		
+		if((subject == null)||(subject.length()<SUBJECT_MIN_LENGHT))
+			throw new OpiningValidateException(Errors.SUBJECT_IS_TOO_SHORT);
+		
+		if(subject.length()>SUBJECT_MAX_LENGHT)
+			throw new OpiningValidateException(Errors.SUBJECT_IS_TOO_LONG);
+			
 		this.subject = subject;
 	}
 	
@@ -44,6 +53,13 @@ public class PolarizedRoom extends DebateRoom {
 	}
 	
 	public void setArgumentTimeInMinutes(Integer argumentTimeInMinutes) {
+		
+		if(argumentTimeInMinutes < MIN_ARGUMENT_TIME_IN_MINUTES)
+			throw new OpiningValidateException(Errors.ARGUMENT_TIME_TOO_SHORT);
+		
+		if(argumentTimeInMinutes > MAX_ARGUMENT_TIME_IN_MINUTES)
+			throw new OpiningValidateException(Errors.ARGUMENT_TIME_TOO_LONG);
+				
 		this.argumentTimeInMinutes = argumentTimeInMinutes;
 	}
 
