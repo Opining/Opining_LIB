@@ -18,6 +18,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.opining.library.model.User;
+import br.com.opining.library.model.error.Errors;
+import br.com.opining.library.model.error.OpiningValidateException;
 
 @XmlRootElement
 @Entity
@@ -83,6 +85,13 @@ public abstract class DebateRoom {
 	}
 	
 	public void setPassword(String password) {
+
+		if (password.length() > PASSWORD_MAX_LENGHT)
+			throw new OpiningValidateException(Errors.PASSWORD_IS_TOO_LONG);
+		
+		if (password == null || password.length() < PASSWORD_MIN_LENGHT)
+			throw new OpiningValidateException(Errors.PASSWORD_IS_TOO_SHORT);
+		
 		this.password = password;
 	}
 
