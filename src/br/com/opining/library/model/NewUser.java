@@ -52,6 +52,7 @@ public class NewUser {
 			throw new OpiningValidateException(Errors.LOGIN_IS_TOO_LONG);
 		
 		this.newLogin = login;
+		
 	}
 
 	@XmlElement
@@ -68,6 +69,7 @@ public class NewUser {
 			throw new OpiningValidateException(Errors.NAME_IS_TOO_SHORT);
 		
 		this.newName = name;
+		
 	}
 
 	@XmlElement
@@ -76,6 +78,13 @@ public class NewUser {
 	}
 
 	public void setNewPassword(String newPassword) {
+		
+		if (newPassword.length() > User.PASSWORD_MAX_LENGHT)
+			throw new OpiningValidateException(Errors.PASSWORD_IS_TOO_LONG);
+		
+		if (newPassword == null || newPassword.length() < User.PASSWORD_MIN_LENGHT)
+			throw new OpiningValidateException(Errors.PASSWORD_IS_TOO_SHORT);
+		
 		this.newPassword = newPassword;
 	}
 	
